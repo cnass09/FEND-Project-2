@@ -4,7 +4,7 @@
  const cards = document.querySelectorAll(".card");
 
 /* 
- * Set up the event listener for all of the cards.
+ * Set up the event listener for a card.
  */
 
 var deck = document.querySelector('.deck');
@@ -12,10 +12,18 @@ var deck = document.querySelector('.deck');
 deck.addEventListener('click', event => {
 	const clickTarget = event.target;
 	if (clickTarget.classList.contains('card')) {
-		clickTarget.classList.toggle('open');
-		clickTarget.classList.toggle('show');
+		toggleCard(clickTarget);
 	}
 });
+
+/* 
+ * If a card is clicked: display the card's symbol (put this functionality in another function that you call from this one).
+ */
+
+ function toggleCard(clickTarget) {
+ 	clickTarget.classList.toggle('open');
+ 	clickTarget.classList.toggle('show');
+ }
 
 /*
  * Display the cards on the page
