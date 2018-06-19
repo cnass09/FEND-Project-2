@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
  const cards = document.querySelectorAll(".card");
-
+ let toggledCards = [];
 /* 
  * Set up the event listener for a card.
  */
@@ -13,11 +13,15 @@ deck.addEventListener('click', event => {
 	const clickTarget = event.target;
 	if (clickTarget.classList.contains('card')) {
 		toggleCard(clickTarget);
+		addToggleCard(clickTarget);
+		if (toggledCards.length === 2) {
+			console.log('We have 2 cards.');
+		}
 	}
 });
 
 /* 
- * If a card is clicked: display the card's symbol (put this functionality in another function that you call from this one).
+ * If a card is clicked, display the card's symbol (put this functionality in another function that you call from this one).
  */
 
  function toggleCard(clickTarget) {
@@ -25,6 +29,13 @@ deck.addEventListener('click', event => {
  	clickTarget.classList.toggle('show');
  }
 
+ /*
+  * If a card is clicked, add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+  */
+
+  function addToggleCard(clickTarget) {
+  	toggledCards.push(clickTarget);
+  }
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
