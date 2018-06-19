@@ -3,6 +3,19 @@
  */
  const cards = document.querySelectorAll(".card");
 
+/* 
+ * Set up the event listener for all of the cards.
+ */
+
+var deck = document.querySelector('.deck');
+
+deck.addEventListener('click', event => {
+	const clickTarget = event.target;
+	if (clickTarget.classList.contains('card')) {
+		clickTarget.classList.toggle('open');
+		clickTarget.classList.toggle('show');
+	}
+});
 
 /*
  * Display the cards on the page
@@ -25,6 +38,7 @@ function shuffle(array) {
 
     return array;
 }
+
 
 
 /*
