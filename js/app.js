@@ -15,7 +15,7 @@ deck.addEventListener('click', event => {
 		toggleCard(clickTarget);
 		addToggleCard(clickTarget);
 		if (toggledCards.length === 2) {
-			console.log('We have 2 cards.');
+			matchCheck();
 		}
 	}
 });
@@ -37,14 +37,16 @@ deck.addEventListener('click', event => {
   	toggledCards.push(clickTarget);
   }
 
+addToggleCard();
  /*
   * If the list already has another card, check to see if the two cards match
   */
 
   function matchCheck() {
-  	if (
-  		toggledCards[0].firstElementChild.card === toggledCards[1].firstElementChild.card
-  		) {
+  	const first_card = toggledCards[0].children[0].className;
+  	const second_card = toggledCards[1].children[0].className;
+
+  	if (first_card === second_card) {
   		console.log('We have a match!');
   		} else {
   		console.log('No match. Try again.');
@@ -52,7 +54,6 @@ deck.addEventListener('click', event => {
 
   }
 
-  matchCheck();
 
 /*
  * Display the cards on the page
