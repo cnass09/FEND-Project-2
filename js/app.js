@@ -15,7 +15,7 @@ deck.addEventListener('click', event => {
 		toggleCard(clickTarget);
 		addToggleCard(clickTarget);
 		if (toggledCards.length === 2) {
-			matchCheck();
+			console.log('2 cards');
 		}
 	}
 });
@@ -53,8 +53,7 @@ addToggleCard();
   		}
 
   }
-
-
+matchCheck();
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
