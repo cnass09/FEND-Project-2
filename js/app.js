@@ -46,9 +46,15 @@ deck.addEventListener('click', event => {
   	const second_card = toggledCards[1].children[0].className;
 
   	if (first_card === second_card) {
-  		console.log('We have a match!');
+  		toggledCards[0].classList.toggle('match');
+  		toggledCards[1].classList.toggle('match');
+  		toggledCards = [];
   		} else {
-  		console.log('No match. Try again.');
+	  		setTimeout(() => {
+		  		toggleCard(toggledCards[0]);
+		  		toggleCard(toggledCards[1]);
+		  		toggledCards = [];
+	  		}, 1000);
   		}
 
   }
